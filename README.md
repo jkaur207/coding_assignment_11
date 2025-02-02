@@ -1,73 +1,61 @@
+# Docker React App - Kaur_Jaspreet_Coding_Assignment_11
 
-# Getting Started with Create React App
+## Overview
+This is my submission for Coding Assignment 11. The goal of this project is to create a simple React application inside a Docker container and make it run on **localhost:7775**.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Requirements
+To run this project, you need:
+- **Docker installed** on your computer ([Download Docker](https://www.docker.com/))
 
-## Available Scripts
+## Steps to Run the Project
 
-In the project directory, you can run:
+### 1. Clone the Repository
+If you are using GitHub, you can clone the project with:
+```bash
+git clone <repository-url>
+cd Kaur_Jaspreet_site
+```
 
-### `npm start`
+### 2. Build the Docker Image
+Run this command inside the project folder:
+```bash
+docker build -t kaur_jaspreet_coding_assignment_11 .
+```
+This will create the Docker image for the project.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 3. Run the Docker Container
+Now, run the container with:
+```bash
+docker run -p 7775:3000 kaur_jaspreet_coding_assignment_11
+```
+This will start the application inside the container.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 4. Open the Web Application
+Go to your browser and visit:
+```
+http://localhost:7775
+```
+You should see a simple page with **"Codin 1"** displayed.
 
-### `npm test`
+## Stopping the Container
+If you need to stop the application, press `CTRL + C` in the terminal, or find the container ID using:
+```bash
+docker ps
+```
+Then stop it with:
+```bash
+docker stop <container_id>
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# coding_assignment_11
+## Troubleshooting
+### If the page doesn’t load:
+- Make sure Docker is running.
+- Try checking if the container is active using:
+  ```bash
+  docker ps
+  ```
+- If you see an error about missing `web-vitals`, install it inside the project:
+  ```bash
+  npm install web-vitals
+  ```
+  Then rebuild the Docker image.
